@@ -47,7 +47,9 @@ Reserve\
  |--package.json                # Dependency managment
  |--.env                        # Config environment
  |--.env.example                # Config environment
- |--.ecoststem.config.json      # production mode
+ |--.ecoststem.config.json      # Production mode
+ |--docker-compose.yml          # For Build image
+ |--Dockerfile                  # For run command
  |--README.md                   # About
  ```
 
