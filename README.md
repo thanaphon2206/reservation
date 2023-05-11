@@ -120,7 +120,7 @@ Reserve\
 
 ##### Example cURL
 > ```javascript
->  curl -i -H 'Accept: application/json' http://localhost:6699//booking/info/detail req.body { restaurant: "example b" }
+>  curl -i -H 'Accept: application/json' http://localhost:6699/booking/info/detail req.body { restaurant: "example b" }
 > ```
 </details>
 

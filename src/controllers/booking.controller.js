@@ -1,13 +1,31 @@
 const Utils = require('../utils');
-const Reservation = require('../services/reservation')
+const Reservation = require('../services/reservation');
+const {
+  reserveSchema,
+  infoSchema,
+  inittalizeSchema,
+  cancelSchema,
+} = require('../validations/reservation.validation');
 
 // Class for struc data
 let reservation = new Reservation()
+
+// Class for check validate
+const option = {
+  abortEarly: false, // include all errors
+  allowUnknown: true, // ignore unknown props
+  stripUnknown: true // remove unknown props
+}
 
 // initialize all tables in the restaurant.
 exports.initialize = async (req, res) => {
   try {
     const { restaurant, tables } = req.body
+
+    // check validate request data
+    const { error } = await inittalizeSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+
     let response = reservation.create(restaurant, tables)
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
@@ -19,6 +37,11 @@ exports.initialize = async (req, res) => {
 exports.getInfoRestaurant = async (req, res) => {
   try {
     const { restaurant } = req.body
+
+    // check validate request data
+    const { error } = await infoSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+
     let response = reservation.getInfo(restaurant)
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
@@ -30,6 +53,11 @@ exports.getInfoRestaurant = async (req, res) => {
 exports.fetchInfoTableRestaurant = async (req, res) => {
   try {
     const { restaurant } = req.body
+
+    // check validate request data
+    const { error } = await infoSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+
     let response = reservation.fetchTableAvailable(restaurant)
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
@@ -41,6 +69,11 @@ exports.fetchInfoTableRestaurant = async (req, res) => {
 exports.fetchInfoBooking = async (req, res) => {
   try {
     const { restaurant } = req.body
+
+    // check validate request data
+    const { error } = await infoSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+
     let response = reservation.fetchBooking(restaurant)
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
@@ -52,6 +85,11 @@ exports.fetchInfoBooking = async (req, res) => {
 exports.getInfoStatus = async (req, res) => {
   try {
     const { restaurant } = req.body
+
+    // check validate request data
+    const { error } = await infoSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+
     let response = reservation.getInfo(restaurant)
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
@@ -71,6 +109,11 @@ exports.reserve = async (req, res) => {
       phonenumber,
       date,
     } = req.body
+
+    // check validate request data
+    const { error } = await reserveSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+
     let response = reservation.reserve(
       restaurant,
       type,
@@ -82,7 +125,6 @@ exports.reserve = async (req, res) => {
     )
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
-    console.log('e', e)
     return res.json(Utils.Response(Utils.Code.CreateRest));
   }
 }
@@ -94,6 +136,11 @@ exports.cancel = async (req, res) => {
       restaurant,
       bookId,
     } = req.body
+
+    // check validate request data
+    const { error } = await cancelSchema.validate(req.body, option)
+    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
+    
     let response = reservation.cancelReserve(
       restaurant,
       bookId,
