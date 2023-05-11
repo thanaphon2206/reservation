@@ -11,6 +11,12 @@ Open terminal and navigate (`cd`) to this folder and type commands:
 3. yarn dev or npm start
 ```
 
+### Rule of my Restaurant
+
+* Please call Intitailze API first for the create restaurant.
+* One people can be reserve mutiple restaurant and table.
+
+
 ## Reservation Project Structure
 
 ```
@@ -60,8 +66,8 @@ Reserve\
 
 ##### Responses
 > | http code     | content-type          | response                                   |
-> |---------------|-----------------------|-------------------------------------------               |
-> | `200`         | `application/json`      `"status": { "code": 0,"message": "Success"}, "data": { "restaurant": "b", "totalTable": 5, "totalAvaliable": 5, "dateAvaliable":"11-05-2023"}`
+> |---------------|-----------------------|-------------------------------------------             
+> | `200`         | `application/json`    |  `"status": { "code": 0,"message": "Success"}, "data": { "restaurant": "b", "totalTable": 5, "totalAvaliable": 5, "dateAvaliable":"11-05-2023"}`
 > | `400`         | `application/json`    | `"status": { "code": 0,"message": "Success"}, "data": "Not found Restaurant"`|
 > | `999`         | `application/json`           |`"status": { "code": 0,"message": "Success"}, "data": ServiceNotAvailable`|
    
@@ -163,3 +169,4 @@ Reserve\
 >  curl -i -H 'Accept: application/json' http://localhost:6699/booking/cancel req.body { "restaurant": "b","bookId": "b-1683788823429-aa2"}
 > ```
 </details>
+
