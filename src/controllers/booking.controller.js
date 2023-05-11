@@ -6,6 +6,7 @@ const {
   inittalizeSchema,
   cancelSchema,
 } = require('../validations/reservation.validation');
+// const helper = require('../services/helper');
 
 // Class for struc data
 let reservation = new Reservation()
@@ -29,7 +30,8 @@ exports.initialize = async (req, res) => {
     const { error } = await inittalizeSchema.validate(req.body, option)
     if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
 
-    let response = reservation.create(restaurant, tables)
+    // const date = helper.getDaysInMonthUTC(new Date().getMonth(), 2023).map((v) => helper.displayDate(v))
+    let response = reservation.create(restaurant, tables, date)
     return res.json(Utils.Response(Utils.Code.Success, response));
   } catch (e) {
     return res.json(Utils.Response(Utils.Code.ServiceNotAvailable));

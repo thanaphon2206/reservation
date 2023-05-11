@@ -12,13 +12,13 @@ class Reservation {
     }
     const data = {
       restaurant,
-      tables: new Array(tables).fill('available')
+      tables: new Array(tables).fill('available'),
     }
     this.restaurant.push(data)
     const [response] = this.restaurant.filter((v) => v.restaurant === restaurant)
     return {
       restaurant: response.restaurant,
-      tables: response.tables.length
+      tables: response.tables.length,
     }
   }
 
@@ -31,7 +31,6 @@ class Reservation {
       restaurant: rest.restaurant,
       totalTable: rest.tables.length,
       totalAvaliable: availableSlots,
-      dateAvaliable: helper.getDate('display')
     }
   }
 
@@ -181,6 +180,10 @@ class Reservation {
           }
         }
       } else {
+        // let pop = this.restaurant.filter((v) => v.restaurant === restaurant)[0].date.filter((v) => v !== date)
+        // this.restaurant.filter((v) => v.restaurant === restaurant)[0].date = []
+        // this.restaurant.filter((v) => v.restaurant === restaurant)[0].date = pop
+        // this.restaurant.filter((v) => v.restaurant === restaurant)[0].unavailableDate.push(date)
         return 'Table is not enough for customers.'
       }
     } else {

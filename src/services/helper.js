@@ -1,8 +1,18 @@
-const moment = require('moment-timezone')
+const moment = require('moment-timezone');
 const generate = require('nanoid-generate');
 
 exports.generateId = () => {
   return generate.english(10)
+}
+
+exports.getDaysInMonthUTC = (month, year) => {
+  var date = new Date(Date.UTC(year, month, 1))
+  var days = []
+  while (date.getUTCMonth() === month) {
+    days.push(new Date(date))
+    date.setUTCDate(date.getUTCDate() + 1)
+  }
+  return days
 }
 
 exports.getDate = (type, date = new Date(), username) => {
