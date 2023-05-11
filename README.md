@@ -47,9 +47,7 @@ Reserve\
  |--package.json                # Dependency managment
  |--.env                        # Config environment
  |--.env.example                # Config environment
- |--.ecoststem.config.json      # Production mode
- |--docker-compose.yml          # For Build image
- |--Dockerfile                  # For run command
+ |--.ecoststem.config.json      # production mode
  |--README.md                   # About
  ```
 
@@ -74,7 +72,7 @@ Reserve\
 #### API Info
 
 <details>
-<summary><code>POST</code> <code>http://localhost:6699/booking/info<b>/info</b></code> <code>(Displays info about the API)</code></summary>
+<summary><code>POST</code> <code>http://localhost:6699/booking/info/</code> <code>(Displays info about the API)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |
@@ -86,14 +84,14 @@ Reserve\
 
 ##### Example cURL
 > ```javascript
-> 'Accept: application/json' http://localhost:6699/booking/info req.body { restaurant: "example b" }
+> 'Accept: application/json' http://localhost:6699/booking/info/ req.body { restaurant: "example b" }
 > ```
 </details>
 
 #### API Info list Position table
 
 <details>
-<summary><code>POST</code> <code>http://localhost:6699/booking/info/table<b>/tables</b></code> <code>(Displays list index table restaurant tables)</code></summary>
+<summary><code>POST</code> <code>http://localhost:6699/booking/info/table/</code> <code>(Displays list index table restaurant tables)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |
@@ -104,14 +102,14 @@ Reserve\
 
 ##### Example cURL
 > ```javascript
->  curl -i -H 'Accept: application/json' http://localhost:6699/booking/info/table req.body { restaurant: "example b" }
+>  curl -i -H 'Accept: application/json' http://localhost:6699/booking/info/table/ req.body { restaurant: "example b" }
 > ```
 </details>
 
 #### API Info list detail booking in Restaurant
 
 <details>
-<summary><code>POST</code> <code>http://localhost:6699/booking/info/detail<b>/tables</b></code> <code>(Displays list detail booking restaurant tables)</code></summary>
+<summary><code>POST</code> <code>http://localhost:6699/booking/info/detail/</code> <code>(Displays list detail booking restaurant tables)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |
@@ -129,7 +127,7 @@ Reserve\
 #### Intitialze Restaurant
 
 <details>
-<summary><code>POST</code> <code>http://localhost:6699/booking/initialize<b>/tables</b></code> <code>(Displays all restaurant tables)</code></summary>
+<summary><code>POST</code> <code>http://localhost:6699/booking/initialize/</code> <code>(Displays all restaurant tables)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |
@@ -140,14 +138,14 @@ Reserve\
 
 ##### Example cURL
 > ```javascript
->  curl -i -H 'Accept: application/json' http://localhost:6699/booking/initialize req.body { restaurant: "example b, table: 5" }
+>  curl -i -H 'Accept: application/json' http://localhost:6699/booking/initialize/ req.body { restaurant: "example b, table: 5" }
 > ```
 </details>
 
 #### Reserve Restaurant
 
 <details>
-<summary><code>POST</code> <code>http://localhost:6699/booking/reserve<b>/tables</b></code> <code>(Displays reserve restaurant tables)</code></summary>
+<summary><code>POST</code> <code>http://localhost:6699/booking/reserve/</code> <code>(Displays reserve restaurant tables)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |
@@ -166,7 +164,7 @@ Reserve\
 #### Cancel booking Restaurant
 
 <details>
-<summary><code>POST</code> <code>http://localhost:6699/booking/cancel<b>/tables</b></code> <code>(Displays cancel booking restaurant tables)</code></summary>
+<summary><code>POST</code> <code>http://localhost:6699/booking/cancel/</code> <code>(Displays cancel booking restaurant tables)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |
@@ -178,7 +176,6 @@ Reserve\
 
 ##### Example cURL
 > ```javascript
->  curl -i -H 'Accept: application/json' http://localhost:6699/booking/cancel req.body { "restaurant": "b","bookId": "b-1683788823429-aa2"}
+>  curl -i -H 'Accept: application/json' http://localhost:6699/booking/cancel/ req.body { "restaurant": "b","bookId": "b-1683788823429-aa2"}
 > ```
 </details>
-
