@@ -56,7 +56,7 @@ Reserve\
 #### Entry Endpoint
 
 <details>
-<summary><code>GET</code> <code>http://localhost:6699/<b>/</b></code> <code>(Displays introduction about the API)</code></summary>
+<summary><code>GET</code> <code>http://localhost:6699/<b></b></code> <code>(Displays introduction about the API)</code></summary>
 
 ##### Responses
 > | http code     | content-type          | response                                   |

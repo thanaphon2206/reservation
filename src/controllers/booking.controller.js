@@ -20,7 +20,10 @@ const option = {
 // initialize all tables in the restaurant.
 exports.initialize = async (req, res) => {
   try {
-    const { restaurant, tables } = req.body
+    const {
+      restaurant,
+      tables
+    } = req.body
 
     // check validate request data
     const { error } = await inittalizeSchema.validate(req.body, option)
@@ -81,22 +84,6 @@ exports.fetchInfoBooking = async (req, res) => {
   }
 }
 
-// get info status reservation in the restaurant.
-exports.getInfoStatus = async (req, res) => {
-  try {
-    const { restaurant } = req.body
-
-    // check validate request data
-    const { error } = await infoSchema.validate(req.body, option)
-    if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
-
-    let response = reservation.getInfo(restaurant)
-    return res.json(Utils.Response(Utils.Code.Success, response));
-  } catch (e) {
-    return res.json(Utils.Response(Utils.Code.ServiceNotAvailable));
-  }
-}
-
 // booking tables in restaurant.
 exports.reserve = async (req, res) => {
   try {
@@ -140,7 +127,7 @@ exports.cancel = async (req, res) => {
     // check validate request data
     const { error } = await cancelSchema.validate(req.body, option)
     if (error) return res.json(Utils.Response(Utils.Code.InvalidRequestData, error.details))
-    
+
     let response = reservation.cancelReserve(
       restaurant,
       bookId,
