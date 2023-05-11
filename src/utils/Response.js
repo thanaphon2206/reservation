@@ -24,6 +24,9 @@ const status = (code) => {
     case 901:
       res = { code, message: 'Invalid Data' };
       break;
+    case 997:
+      res = { code, message: 'Invalid Request Data' };
+      break;
     case 999:
       res = { code, message: 'ระบบไม่สามารถดำเนินการได้ในขณะนี้ ลองใหม่อีกครั้ง' };
       break;

@@ -1,6 +1,5 @@
 const express = require('express');
 const controller = require('../controllers/booking.controller');
-// const validation = require('../validations/reservation.validation');
 const router = express.Router();
 
 router.post('/initialize',  controller.initialize) 
