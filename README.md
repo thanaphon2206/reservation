@@ -11,6 +11,16 @@ Open terminal and navigate (`cd`) to this folder and type commands:
 3. yarn dev or npm start
 ```
 
+#### For run Docker Mode
+
+Please install Docker service first and Open terminal and navigate (`cd`) to this folder and type commands:
+
+```bash
+1. docker pull node:18-alpine
+2. docker-compose up -d // start service
+3. docker-compose down // for stop service
+```
+
 ### Rule of my Restaurant
 
 * Please call Intitailze API first for the create restaurant.
