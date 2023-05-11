@@ -24,7 +24,7 @@ Please install Docker service first and Open terminal and navigate (`cd`) to thi
 ### Rule of my Restaurant
 
 * Please call Intitailze API first for the create restaurant.
-* One people can be reserve mutiple restaurant and table.
+* One people can be reserve mutiple restaurant and table and booking.
 
 
 ## Reservation Project Structure
